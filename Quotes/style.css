@@ -1,0 +1,31 @@
+#root {
+  max-width: 1500px;
+  margin: 5 auto;
+  
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color:#cc4400;
+}
+
+.card {
+  font-style:italic;
+	
+  margin: 1rem;
+  border: 2px solid gray;
+  background-color: #ffdd99;
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    flex: 1 1 calc(80% - 2rem);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .card {
+    flex: 1 1 calc(63% - 4rem);
+  }
+}
