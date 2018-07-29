@@ -1,0 +1,49 @@
+.dashboard-music-header {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right,#f37514,#f68b30);
+}
+
+.dashboard-music-image {
+    padding: 10px;
+    margin-left: 10px;
+    background: url(../Images/musicalnotes.png) right no-repeat,
+				url(../Images/musicheadphones.png) left no-repeat;
+}
+
+.dashbioard-music-titletext {
+    color: #fff;
+    padding-left: 50px!important;
+    font-size: 26px!important;
+}
+
+.dashboard-music-play{
+    width:20px;
+}
+
+.dashboard-music-wrapper{
+    border:1px solid #888;
+    box-shadow: 1px 1px 5px #0005;
+}
+
+.dashboard-music-list{
+    max-height:200px;
+    overflow-y:auto;
+}
+
+/* .dashboard-music-list table {
+    width: 100%!important;
+    border-collapse: separate!important;
+    border-spacing: 0 .75rem!important;
+}
+
+.dashboard-music-list th, td {
+    text-align: left!important;
+    font-weight: 300!important;
+    border-bottom: 1px solid lighten(#282828, 50%)!important;
+    padding: 0 1rem .75rem 1rem!important;
+}
+
+.dashboard-music-list th, td:first-of-type {
+    color: lighten(#282828, 50%)!important;
+} */

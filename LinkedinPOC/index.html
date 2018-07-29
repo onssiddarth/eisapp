@@ -1,0 +1,37 @@
+<html>
+<head>
+<script type="text/javascript" src="https://platform.linkedin.com/in.js">  
+    api_key: 86yeo5zjiix92f //81g47lxa0nc7rm //86yeo5zjiix92f //Client ID  
+    onLoad: OnLinkedInFrameworkLoad //Method that will be called on page load  
+    authorize: true  
+</script>  
+</head>
+<script type="text/javascript">  
+    function OnLinkedInFrameworkLoad() {  
+        console.log('OnLinkedInFrameworkLoad');
+        IN.Event.on(IN, "auth", OnLinkedInAuth);  
+    }  
+  
+    function OnLinkedInAuth() {  
+        console.log('OnLinkedInAuth');
+        IN.API.Profile("me").result(ShowProfileData);  
+    }  
+  
+    function ShowProfileData(profiles) {  
+        console.log('ShowProfileData' + profiles);
+        var member = profiles.values[0];  
+        var id = member.id;  
+        var firstName = member.firstName;  
+        var lastName = member.lastName;  
+        var photo = member.pictureUrl;  
+        var headline = member.headline;  
+        //use information captured above  
+        var stringToBind = "<p>First Name: " + firstName + " <p/><p> Last Name: " + lastName + "<p/><p>User ID: " + id + " and Head Line Provided: " + headline + "<p/>"  
+        document.getElementById('profiles').innerHTML = stringToBind;  
+    }  
+</script>
+
+<body>
+<div id="profiles"></div>
+</body>
+</html>

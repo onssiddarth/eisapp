@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head> 
+<title></title>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type='text/javascript' src='https://api.stackexchange.com/js/2.0/all.js'></script>
+<script type="text/javascript">
+    $(function () {
+        // Initialize library
+        SE.init({
+            // Parameters obtained by registering an app, these are specific to the SE
+            //   documentation site
+            clientId: 12806,
+            key: '*fiJC)4KOnmCm9*O)vNMfA((',
+            // Used for cross domain communication, it will be validated
+            channelUrl: 'http://localhost:42879',
+            // Called when all initialization is finished
+            complete: function (data) {
+                $('#login-button')
+                    .removeAttr('disabled')
+                    .text('Run Example With Version ' + data.version);
+            }
+        });
+
+        // Attach click handler to login button
+        $('#login-button').click(function () {
+
+            // Make the authentication call, note that being in an onclick handler
+            //   is important; most browsers will hide windows opened without a
+            //   'click blessing'
+            SE.authenticate({
+                success: function (data) {
+                    alert(
+                        'User Authorized with account id = ' +
+                        data.networkUsers[0].account_id + ', got access token = ' +
+                        data.accessToken
+                    );
+                },
+                error: function (data) {
+                    alert('An error occurred:\n' + data.errorName + '\n' + data.errorMessage);
+                },
+                networkUsers: true
+            });
+        });
+    });
+</script>
+    
+
+</head>
+<body>
+<button id="login-button" disabled>Loading...</button>
+</body>
+</html>

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello jQuery</title>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="script.js"></script> -->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="1071760610072-8suc5vpfild7ilqla2mvptvfntp2pstd.apps.googleusercontent.com">
+    </head>
+
+    <body>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <div id="content"></div>
+            <script>
+                    function hndlr(response) {
+                    for (var i = 0; i < response.items.length; i++) {
+                      var item = response.items[i];
+                      // in production code, item.htmlTitle should have the HTML entities escaped.
+                      document.getElementById("content").innerHTML += "<br>" + item.htmlTitle;
+                    }
+                  }
+                  function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+                  </script>
+                  <script src="https://www.googleapis.com/customsearch/v1?key=AIzaSyBBZAhezrkEtKD9ogLMHPQGYGusSaS7iH4&cx=017576662512468239146:omuauf_lfve&q=cars&callback=hndlr">
+                  </script>
+                  <a href="#" onclick="signOut();">Sign out</a>
+                  <script>
+                    function signOut() {
+                      var auth2 = gapi.auth2.getAuthInstance();
+                      auth2.signOut().then(function () {
+                        console.log('User signed out.');
+                      });
+                    }
+                  </script>
+              
+
+        <!-- <div>
+            <h1 class="quoteTitle"></h1>
+            <img id="quote_img" alt="Smiley face" height="42" width="42">
+            <p class="quote"></p>
+            <p class="quoteAuthor"></p>            
+            <a id="quoteLink" target="_blank">Click here</a>
+        </div>
+        <div>
+            <h1>HUMOUR</h1>
+            <img id="joke_img" alt="Smiley face" height="42" width="42">
+            <p class="joke"></p>
+            <p class="jokeAuthor"></p>            
+            <a id="jokeLink" target="_blank">Click here</a>
+        </div>
+
+        <div id="news">
+        </div>
+
+        <div id="quora">
+        </div>
+
+        <div id="books">
+                <h1>IT BOOKS</h1>
+                <img id="book_img" alt="book face" height="42" width="42">
+            </div> -->
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Jquery with JSON Data</title>  
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body>
+	
+		<div id="placeholder"></div>
+		
+		
+		<script>
+			$(function () {
+			
+			var url = 'http://quotes.rest/qod.json';
+				$.ajax({
+					dataType: 'json',
+					url:url,
+					success: function (result) {
+						console.log(result);	
+						
+							var quote = result.contents.quotes[0].quote;
+                            var author = result.contents.quotes[0].author;
+							$('#placeholder').html(quote);						
+					}
+				});	
+			})
+		</script>
+	</body>
+</html>
