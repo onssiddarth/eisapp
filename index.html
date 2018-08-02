@@ -8,6 +8,11 @@
     <meta name="google-signin-client_id" content="106664410926-fdp4kn4356plv295db92u5q0ljg0koa1.apps.googleusercontent.com">
     <link rel=¨stylesheet¨ type=¨text/css¨ href=¨style.css¨>
     <script src="app.js"></script>
+    <script type="text/javascript" src="https://platform.linkedin.com/in.js">  
+        api_key: 86yeo5zjiix92f //81g47lxa0nc7rm //86yeo5zjiix92f //Client ID  
+        onLoad: OnLinkedInFrameworkLoad //Method that will be called on page load  
+        authorize: true  
+    </script>  
 </head>
 <body>
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-longtitle="true"></div>
@@ -103,11 +108,34 @@
             });
         }
     </script>
+
+<script type="text/javascript">  
+    function OnLinkedInFrameworkLoad() {  
+        console.log('OnLinkedInFrameworkLoad');
+        IN.Event.on(IN, "auth", OnLinkedInAuth);  
+    }  
+  
+    function OnLinkedInAuth() {  
+        console.log('OnLinkedInAuth');
+        IN.API.Profile("me").result(ShowProfileData);  
+    }  
+  
+    function ShowProfileData(profiles) {  
+        console.log('ShowProfileData' + profiles);
+        var member = profiles.values[0];  
+        var id = member.id;  
+        var firstName = member.firstName;  
+        var lastName = member.lastName;  
+        var photo = member.pictureUrl;  
+        var headline = member.headline;  
+        //use information captured above  
+        var stringToBind = "<p>First Name: " + firstName + " <p/><p> Last Name: " + lastName + "<p/><p>User ID: " + id + " and Head Line Provided: " + headline + "<p/>"  
+        document.getElementById('profiles').innerHTML = stringToBind;  
+    }  
+</script>
     <a href="#" onclick="signOut();">Sign out</a>
 
-    <div>
-        <p></p>
-    </div>
+    <div id="profiles"></div>
 
 </body>
 </html>
