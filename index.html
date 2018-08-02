@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Olakya</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <meta name="google-signin-client_id" content="106664410926-fdp4kn4356plv295db92u5q0ljg0koa1.apps.googleusercontent.com">
+    <link rel=¨stylesheet¨ type=¨text/css¨ href=¨style.css¨>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-longtitle="true"></div>
+    <button onclick="login()" id="login">Login</button>
+    <div class="modal-wrapper">
+        <div class="modal">
+            <div class="head">
+                <a class="btn-close trigger" href="javascript:;">Welcome</a>
+            </div>
+            <div class="content">
+                Welcome <p id="namea"></p>
+                <img id="imgid" />
+                <button id="btnViewDashboard" type="button" class="btn btn-success">View Dashboard</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#btnViewDashboard').click(function () {
+                window.location = 'dashboard.html'
+            });
+        });
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+            $('.modal-wrapper').toggleClass('open');
+            //$('.page-wrapper').toggleClass('blur');
+            document.getElementById("namea").innerHTML = profile.getName();
+            $("#imgid").attr("src", profile.getImageUrl());
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+
+    <script>
+        // initialize and setup facebook js sdk
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '441306086335638',
+                xfbml: true,
+                version: 'v3.0'
+            });
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    document.getElementById('status').innerHTML = 'We are connected.';
+                    document.getElementById('login').style.visibility = 'hidden';
+                } else if (response.status === 'not_authorized') {
+                    document.getElementById('status').innerHTML = 'We are not logged in.'
+                } else {
+                    document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+                }
+            });
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // login with facebook with extra permissions
+        function login() {
+            FB.login(function (response) {
+                if (response.status === 'connected') {
+                    document.getElementById('status').innerHTML = 'We are connected.';
+                    document.getElementById('login').style.visibility = 'hidden';
+                } else if (response.status === 'not_authorized') {
+                    document.getElementById('status').innerHTML = 'We are not logged in.'
+                } else {
+                    document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+                }
+            }, { scope: 'email' });
+        }
+
+        // getting basic user info
+        function getInfo() {
+            FB.api('/me', 'GET', { fields: 'first_name,last_name,name,id' }, function (response) {
+                document.getElementById('status').innerHTML = response.id;
+            });
+        }
+    </script>
+    <a href="#" onclick="signOut();">Sign out</a>
+
+    <div>
+        <p></p>
+    </div>
+
+</body>
+</html>
