@@ -15,6 +15,15 @@
     </script>  
 </head>
 <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1&appId=441306086335638&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-longtitle="true"></div>
     
     <div class="modal-wrapper">
@@ -103,15 +112,28 @@
     
     // getting basic user info
     function getInfo() {
-        FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
-            document.getElementById('status').innerHTML = response.id;
-        });
+        // FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
+        //     document.getElementById('status').innerHTML = response.id;
+        // });
+        FB.api('/me', 
+        {fields: "id,picture,email,first_name,link,name"}, 
+        function(response) {
+          console.log('API response', response);
+          $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
+          $("#name").append(response.name);
+          $("#user-id").append(response.id);
+        }
+    );
     }
 </script>
-
+fb-profile-picture: <div id="fb-profile-picture"></div>
+name: <div id="name"></div>
+user-id: <div id="user-id"></div>
 <div id="status"></div>
 <button onclick="getInfo()">Get Info</button>
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
 <button onclick="login()" id="login">Login</button>
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
 <script type="text/javascript">  
     function OnLinkedInFrameworkLoad() {  
