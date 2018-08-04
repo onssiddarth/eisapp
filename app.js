@@ -35,28 +35,28 @@
     // }(document, 'script', 'facebook-jssdk'));
 
     // LOGIN WITH FACEBOOK WITH EXTRA PERMISSIONS
-    function fblogin() {
-      console.log('inside fblogin');
-        fb.login(function(response) {
-            console.log('inside fblogin response.');
-            if (response.status === 'connected') {
-                console.log('we are connected.');
-            } else if (response.status === 'not_authorized') {
-                console.log('we are not logged in.');
-            } else {
-                console.log('you are not logged into facebook.');
-            }
-        }, {scope: 'email'});
-
-        fb.api('/me',
-        {fields: "id,picture,email,first_name,link,name"},
-        function(response) {
-          console.log('api response', response);
-          $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
-          $("#name").append(response.name);
-          $("#user-id").append(response.id);
-        }
-    }
+    // function fblogin() {
+    //   console.log('inside fblogin');
+    //     fb.login(function(response) {
+    //         console.log('inside fblogin response.');
+    //         if (response.status === 'connected') {
+    //             console.log('we are connected.');
+    //         } else if (response.status === 'not_authorized') {
+    //             console.log('we are not logged in.');
+    //         } else {
+    //             console.log('you are not logged into facebook.');
+    //         }
+    //     }, {scope: 'email'});
+    //
+    //     fb.api('/me',
+    //     {fields: "id,picture,email,first_name,link,name"},
+    //     function(response) {
+    //       console.log('api response', response);
+    //       $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
+    //       $("#name").append(response.name);
+    //       $("#user-id").append(response.id);
+    //     }
+    // }
 
     // // getting basic user info
     // function getInfo() {
@@ -84,10 +84,10 @@
         console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
-        $('.modal-wrapper').toggleClass('open');
+        //$('.modal-wrapper').toggleClass('open');
         //$('.page-wrapper').toggleClass('blur');
-        document.getElementById("namea").innerHTML = profile.getName();
-        $("#imgid").attr("src", profile.getImageUrl());
+        //document.getElementById("namea").innerHTML = profile.getName();
+        //$("#imgid").attr("src", profile.getImageUrl());
     }
     function onFailure(error) {
         console.log(error);
