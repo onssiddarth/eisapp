@@ -2,35 +2,58 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to ABCD</title>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    
-    <script src="js/utils.js"></script> 
-    <script src="js/tether.js"></script>    
+
+    <script src="js/utils.js"></script>
+    <script src="js/tether.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="106664410926-fdp4kn4356plv295db92u5q0ljg0koa1.apps.googleusercontent.com">
     <link rel=¨stylesheet¨ type=¨text/css¨ href=¨style.css¨>
     <script src="app.js"></script>
-    <script type="text/javascript" src="https://platform.linkedin.com/in.js">  
-        api_key: 86bagp3gthz9j7 //81g47lxa0nc7rm //86yeo5zjiix92f //Client ID  
-        onLoad: OnLinkedInFrameworkLoad //Method that will be called on page load  
-        authorize: true  
-    </script>   
+    <script type="text/javascript" src="https://platform.linkedin.com/in.js">
+        api_key: 86bagp3gthz9j7 //81g47lxa0nc7rm //86yeo5zjiix92f //Client ID
+        onLoad: OnLinkedInFrameworkLoad //Method that will be called on page load
+        authorize: true
+    </script>
 </head>
 <body>
     <div class="container">
-        <header class="animated slideInDown text-center bg-primary text-white p-5">
+        <header id="header" class="animated slideInDown text-center bg-primary text-white pt-3">
             <h1 class="display-4">A Basic Custom Dashboard</h1>
+            <nav class="navbar fixed-top navbar-toggleable-xl navbar-inverse">
+            <div class="container">
+              <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#home">Home </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#speakers">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#schedule">Contact Us</a>
+                </li>
+              </ul>
+              <a class="navbar-brand  ml-auto hidden-xs-down" href="#">Log in</a>
+            </div>
+          </nav>
         </header>
-<section id="section-1" class="animated slideInLeft bg-faded p-5 my-3">
-<h1>Section 1</h1>
-<p>CArousel place</p>
-</section>
-<section id="section-2" class="animated slideInRight bg-faded p-5">
+      <section id="section-1" class="animated slideInLeft bg-faded p-5 my-3">
+      <h1>Section 1</h1>
+      <p>Carousel place</p>
+      </section>
+      <section id="section-2" class="animated slideInRight bg-faded p-5">
         <h1>Section 2</h1>
         <p>Signin</p>
         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-longtitle="true"></div>
@@ -38,35 +61,11 @@
         <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onclick="fblogin()"></div>
         <hr>
         fb-profile-picture: <div id="fb-profile-picture"></div>
-name: <div id="name"></div>
-user-id: <div id="user-id"></div>
-    </section>
-    </div>
-    <!--<div class="modal-wrapper">
-        <div class="modal">
-            <div class="head">
-                <a class="btnclose trigger" href="javascript:;">Welcome</a>
-            </div>
-            <div class="content">
-                Welcome <p id="namea"></p>
-                <img id="imgid" />
-                <button id="btnViewDashboard" type="button" class="btn btn-success">View Dashboard</button>
-            </div>
-        </div>
-    </div>
-    <script>
-        $(function () {
-            $('#btnViewDashboard').click(function () {
-                window.location = 'dashboard.html'
-            });
-        });
-    </script>
+        name: <div id="name"></div>
+        user-id: <div id="user-id"></div>
+      </section>
+      </div>
 
     <a href="#" onclick="signOut();">Sign out</a>
-
-    <div id="profiles"></div>
-    <script type="in/Login">
-    </script> -->
-
 </body>
 </html>

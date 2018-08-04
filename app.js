@@ -33,36 +33,38 @@
     //     js.src = "//connect.facebook.net/en_US/sdk.js";
     //     fjs.parentNode.insertBefore(js, fjs);
     // }(document, 'script', 'facebook-jssdk'));
-    
-    // // login with facebook with extra permissions
-    // function fblogin() {
-    //     FB.login(function(response) {
-    //         if (response.status === 'connected') {
-    //             console.log('We are connected.');
-    //         } else if (response.status === 'not_authorized') {
-    //             console.log('We are not logged in.');
-    //         } else {
-    //             console.log('You are not logged into Facebook.');
-    //         }
-    //     }, {scope: 'email'});
 
-    //     FB.api('/me', 
-    //     {fields: "id,picture,email,first_name,link,name"}, 
-    //     function(response) {
-    //       console.log('API response', response);
-    //       $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
-    //       $("#name").append(response.name);
-    //       $("#user-id").append(response.id);
-    //     }
-    // }
-    
+    // LOGIN WITH FACEBOOK WITH EXTRA PERMISSIONS
+    function fblogin() {
+      console.log('inside fblogin');
+        fb.login(function(response) {
+            console.log('inside fblogin response.');
+            if (response.status === 'connected') {
+                console.log('we are connected.');
+            } else if (response.status === 'not_authorized') {
+                console.log('we are not logged in.');
+            } else {
+                console.log('you are not logged into facebook.');
+            }
+        }, {scope: 'email'});
+
+        fb.api('/me',
+        {fields: "id,picture,email,first_name,link,name"},
+        function(response) {
+          console.log('api response', response);
+          $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
+          $("#name").append(response.name);
+          $("#user-id").append(response.id);
+        }
+    }
+
     // // getting basic user info
     // function getInfo() {
     //     // FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
     //     //     document.getElementById('status').innerHTML = response.id;
     //     // });
-    //     FB.api('/me', 
-    //     {fields: "id,picture,email,first_name,link,name"}, 
+    //     FB.api('/me',
+    //     {fields: "id,picture,email,first_name,link,name"},
     //     function(response) {
     //       console.log('API response', response);
     //       $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
