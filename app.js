@@ -1,4 +1,8 @@
-﻿// $(document).ready(function () {
+// Global Variables
+var username = '';
+var profilepic = '';
+
+// $(document).ready(̥function () {
 //     $('.trigger').click(function () {
 //         $('.modal-wrapper').toggleClass('open');
 //         $('.page-wrapper').toggleClass('blur');
@@ -79,7 +83,9 @@
         var profile = googleUser.getBasicProfile();
         console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
         console.log('Name: ' + profile.getName());
+        username = profile.getName();
         console.log('Image URL: ' + profile.getImageUrl());
+        profilepic = profile.getImageUrl();
         console.log('Email: ' + profile.getEmail());
         console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
         console.log('Image URL: ' + profile.getImageUrl());

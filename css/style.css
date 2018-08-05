@@ -1,0 +1,305 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+.wrapper {
+  margin: 30px;
+}
+
+.widgets {
+  position: relative;
+  padding-top: 2%;
+  margin: 0;
+  background: #EEE;
+}
+.widgets:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.widget {
+  padding: 20px;
+  box-sizing: border-box;
+  background: #FFF;
+  overflow: auto;
+}
+
+.widget-header {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.widget-header a {
+  float: right;
+  margin-left: 10px;
+}
+
+.widget-content {
+  line-height: 1.4;
+}
+
+.widgets-js .widget-col {
+  float: left;
+  margin: 0 0 0 2%;
+  width: 47%; /*30.63 */
+  min-height: 50px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+@media (max-width: 1280px) {
+  .widgets-js .widget-col {
+    width: 47%;
+  }
+  .widgets-js .widget-col.widget-col-2 {
+    display: none;
+  }
+  .widgets-js .widget-col .widget {
+    margin-bottom: 4%;
+  }
+}
+.widgets-js .widget {
+  margin-bottom: 6%;
+}
+.widgets-js .widget-move {
+  text-decoration: none;
+}
+.widgets-js .widget-move:before {
+  font-family: 'Material Icons';
+  content: "\E89F";
+}
+.widgets-js .ui-sortable-placeholder {
+  background: #ccc;
+  outline: 1px solid #aaa;
+  visibility: visible !important;
+}
+
+.widgets-css .widget {
+  margin: 2%;
+  margin-top: 0;
+  width: 30.63%;
+}
+.widgets-css .widget-left {
+  float: left;
+  clear: left;
+}
+.widgets-css .widget-center {
+  margin-left: 34.63%;
+  background: #afa;
+}
+.widgets-css .widget-right {
+  float: right;
+  clear: right;
+  background: #8df;
+}
+@media (max-width: 1280px) {
+  .widgets-css .widget {
+    width: 47%;
+  }
+  .widgets-css .widget-left {
+    clear: left;
+    float: left;
+  }
+  .widgets-css .widget-center,
+  .widgets-css .widget-right {
+    float: none;
+    margin-left: 51%;
+  }
+  .widgets-css .widget-right:nth-child(2n) {
+    margin-left: 2%;
+    clear: left;
+    float: left;
+  }
+}
+
+.dashboard-music-header {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right,#f37514,#f68b30);
+}
+
+.dashboard-music-image {
+    padding: 10px;
+    margin-left: 10px;
+    background: url(../img/musicalnotes.png) right no-repeat,
+				url(../img/musicheadphones.png) left no-repeat;
+}
+
+.dashbioard-music-titletext {
+    color: #fff;
+    padding-left: 50px!important;
+    font-size: 26px!important;
+}
+
+.dashboard-music-play{
+    width:20px;
+}
+
+.dashboard-music-wrapper{
+    border:1px solid #888;
+    box-shadow: 1px 1px 5px #0005;
+}
+
+.dashboard-music-list{
+    max-height:200px;
+    overflow-y:auto;
+}
+
+.books-section ul.thumbnails {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.books-section .caption-box h5 {
+    color: #444;
+}
+
+.books-section .caption-box p {
+    font-size: 15px;
+    color: #999;
+}
+
+.books-section .btn.btn-mini {
+    font-size: 15px;
+}
+
+.books-section .control-box {
+    width: 100%;
+}
+
+.book-carousel{
+    background: #666 !important;
+    border: 0px;
+    border-radius: 0px;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 200;
+    line-height: 18px;
+    opacity: 0.5;
+    padding: 4px 10px;
+    margin: 30px -20px 0;
+    height: 30px;
+    width: 30px;
+}
+
+@media (max-width: 767px) {
+    .page-header { text-align: center; }
+}
+@media (max-width: 479px) {
+    .caption-box { word-break: break-all; }
+    ul.thumbnails li { margin-bottom: 30px; }
+}
+
+.book-subtitle{
+    display:inline-block;
+    width:200px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+}
+
+ .book-title{
+    /* width:200px;
+    height:200px;
+    white-space: nowrap;*/
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+}
+
+.overflow-hidden{
+  overflow: hidden !important;
+}
+
+.quote-img{
+  width: 100%;
+}
+
+.quote-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-wg {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#quoteLink {
+color: white;
+}
+
+.imgblur {
+    -webkit-filter: blur(3px); /* Safari 6.0 - 9.0 */
+    filter: blur(3px);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+* { box-sizing:border-box; }
+
+
+
+#create, textarea  {
+  float:left;
+  padding:25px 25px 40px;
+  margin:0 20px 20px 0;
+  width:250px;
+  height:250px;
+}
+
+#create {
+  user-select:none;
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+  border:15px solid rgba(0,0,0,0.1);
+  cursor:pointer;
+  color:rgba(0,0,0,0.1);
+  font:220px "Helvetica", sans-serif;
+  line-height:185px;
+}
+
+#create:hover { border-color:rgba(0,0,0,0.2); color:rgba(0,0,0,0.2); }
+
+textarea {
+  font:20px 'Gloria Hallelujah', cursive;
+  line-height:1.5;
+  border:0;
+  border-radius:3px;
+  background: linear-gradient(#F9EFAF, #F7E98D);
+  box-shadow:0 4px 6px rgba(0,0,0,0.1);
+  overflow:hidden;
+  transition:box-shadow 0.5s ease;
+  font-smoothing:subpixel-antialiased;
+  max-width:520px;
+  max-height:250px;
+}
+textarea:hover { box-shadow:0 5px 8px rgba(0,0,0,0.15); }
+textarea:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
+
+
+
+.main-text {
+    position: absolute;
+    top: 50px;
+    width: 96.66666666666666%;
+    color: #FFF;
+}
+
+.car-width{
+  max-height: 500px !important;
+}
+
+.margin-top20{
+  margin-top: 20px !important;
+}
