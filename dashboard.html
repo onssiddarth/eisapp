@@ -26,7 +26,22 @@
 
       <link rel="stylesheet" href="css/style.css">
       <script>
-      $(function() {  $("#popModal").modal('show');
+      $(function() {
+        console.log('insideeee');
+        var username = localStorage.getItem["username"];
+        console.log(username);
+        var profilepic = localStorage.getItem["profilepic"];
+        console.log(profilepic);
+        if (username != '') {
+          $('#modal-title').innerHTML('Welcome ' + username);
+          console.log('inside username');
+        }
+        if (profilepic != '') {
+          $('#modalimg').attr('src',profilepic);
+          console.log('inside profilepic');
+        }
+
+        $("#popModal").modal('show');
       // Set a timeout to hide the element again
       setTimeout(function(){
           $("#popModal").modal('hide');
@@ -238,10 +253,10 @@
   <div class="modal-content">
     <div class="modal-header">
 
-      <h4 class="modal-title">Welcome Siddarth</h4>
+      <h4 class="modal-title">Welcome Guest</h4>
     </div>
     <div class="modal-body">
-      <img src="https://lh4.googleusercontent.com/-ybOUD14Lc-Q/AAAAAAAAAAI/AAAAAAAAAEc/hjpNkW0ZY1k/s96-c/photo.jpg"/>
+      <img id="modalimg" src="img\profile.png"/>
     <!-- <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div> -->
