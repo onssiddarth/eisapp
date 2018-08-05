@@ -33,12 +33,20 @@
         var profilepic = localStorage.getItem("profilepic");
         console.log(profilepic);
         if (username != '') {
-          $('#modal-title').html('Welcome ' + username);
+          var name = 'Welcome ' + username;
+          console.log(name);
+          $('#modal-title').html(name);
           console.log('inside username');
+        }
+        else {
+          $('#modal-title').html('Welcome Guest');
         }
         if (profilepic != '') {
           $('#modalimg').attr('src',profilepic);
           console.log('inside profilepic');
+        }
+        else {
+          $('#modalimg').attr('src',"img\profile.png");
         }
 
         $("#popModal").modal('show');
