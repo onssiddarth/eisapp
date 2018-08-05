@@ -139,33 +139,33 @@ $(document).ready(function() {
 // }, 3000);
 // });
 
-  function onSignIn(googleUser) {
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName());
-      username = profile.getName();
-      console.log('Image URL: ' + profile.getImageUrl());
-      profilepic = profile.getImageUrl();
-      console.log('Email: ' + profile.getEmail());
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
-      //$('.modal-wrapper').toggleClass('open');
-      //$('.page-wrapper').toggleClass('blur');
-      //document.getElementById("namea").innerHTML = profile.getName();
-      //$("#imgid").attr("src", profile.getImageUrl());
-      //alert('hi');
-      //$('#btnViewDashboard').show();
-  }
-  function onFailure(error) {
-      console.log(error);
-  }
-  function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-          console.log('User signed out.');
-      });
-  }
+  // function onSignIn(googleUser) {
+  //     var profile = googleUser.getBasicProfile();
+  //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  //     console.log('Name: ' + profile.getName());
+  //     username = profile.getName();
+  //     console.log('Image URL: ' + profile.getImageUrl());
+  //     profilepic = profile.getImageUrl();
+  //     console.log('Email: ' + profile.getEmail());
+  //     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  //     console.log('Image URL: ' + profile.getImageUrl());
+  //     console.log('Email: ' + profile.getEmail());
+  //     //$('.modal-wrapper').toggleClass('open');
+  //     //$('.page-wrapper').toggleClass('blur');
+  //     //document.getElementById("namea").innerHTML = profile.getName();
+  //     //$("#imgid").attr("src", profile.getImageUrl());
+  //     //alert('hi');
+  //     //$('#btnViewDashboard').show();
+  // }
+  // function onFailure(error) {
+  //     console.log(error);
+  // }
+  // function signOut() {
+  //     var auth2 = gapi.auth2.getAuthInstance();
+  //     auth2.signOut().then(function () {
+  //         console.log('User signed out.');
+  //     });
+  // }
 
 	$.ajax({
 	        dataType: "json",
