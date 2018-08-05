@@ -282,7 +282,7 @@ function setupNewsData(){
 
                 indicator += '<li data-target="#myCarousel" data-slide-to="'+i+'"></li>';
             }
-            $('.carousel-inner').html(response);
+            $('.news-section').html(response);
             $('.carousel-indicators').html(indicator);
 
         }
