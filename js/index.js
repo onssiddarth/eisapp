@@ -132,6 +132,12 @@ var profilepic = '';
 $(document).ready(function() {
 
 //$('#btnViewDashboard').hide();
+// $(function() {  $("#popModal").modal('show');
+// // Set a timeout to hide the element again
+// setTimeout(function(){
+//     $("#popModal").modal('hide');
+// }, 3000);
+// });
 
   function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
@@ -229,6 +235,8 @@ $(document).ready(function() {
 										console.log(icon);
 										console.log(city);
 										console.log(country);
+                    console.log(username);
+                    console.log(profilepic);
 										var modifiedcity = city + ", " + country;
 										$('#temperature').html(temperature);
 										$('#description').html(description);
