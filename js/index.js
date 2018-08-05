@@ -131,7 +131,7 @@ var profilepic = '';
 
 $(document).ready(function() {
 
-$('#btnViewDashboard').hide();
+//$('#btnViewDashboard').hide();
 
   function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
@@ -148,8 +148,8 @@ $('#btnViewDashboard').hide();
       //$('.page-wrapper').toggleClass('blur');
       //document.getElementById("namea").innerHTML = profile.getName();
       //$("#imgid").attr("src", profile.getImageUrl());
-      alert('hi');
-      $('#btnViewDashboard').show();
+      //alert('hi');
+      //$('#btnViewDashboard').show();
   }
   function onFailure(error) {
       console.log(error);
