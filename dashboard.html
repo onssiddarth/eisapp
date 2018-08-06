@@ -26,7 +26,14 @@
 
       <link rel="stylesheet" href="css/style.css">
       <script>
+
       $(function() {
+
+        $('#btnViewDashboard').click(function() {
+    window.location.href = 'index.html';
+    return false;
+  });
+
         console.log('insideeee');
         $("#btnViewDashboard").html('Go to Home');
         $('#btnViewDashboard').show();

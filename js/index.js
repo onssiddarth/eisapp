@@ -132,9 +132,6 @@ var profilepic = '';
 $(document).ready(function() {
 
 
-const isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
-console.log('isSignedIn:');
-console.log(isSignedIn);
 //$('#btnViewDashboard').hide();
 // $(function() {  $("#popModal").modal('show');
 // // Set a timeout to hide the element again
