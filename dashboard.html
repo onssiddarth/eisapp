@@ -28,7 +28,7 @@
       <script>
 
       $(function() {
-
+$('#myCarousel').carousel({ interval: 2000 });
         $('#btnViewDashboard').click(function() {
     window.location.href = 'index.html';
     return false;
@@ -41,7 +41,7 @@
         console.log(username);
         var profilepic = localStorage.getItem("profilepic");
         console.log(profilepic);
-        if (username != '') {
+        if (username != '' && username != null) {
           var name = 'Welcome ' + username;
           console.log(name);
           $('.modal-title').html(name);
@@ -50,12 +50,17 @@
         else {
           $('#modal-title').html('Welcome Guest');
         }
-        if (profilepic != '') {
+        if (profilepic != '' && profilepic != null) {
           $('#modalimg').attr('src',profilepic);
+          $('#profile-img').attr('src',profilepic);
+          console.log(profilepic);
           console.log('inside profilepic');
         }
         else {
-          $('#modalimg').attr('src',"img\profile.png");
+          var defaultprofilepic = 'img\\profile.png';
+          $('#modalimg').attr('src',defaultprofilepic);
+          console.log('profilepic nulls sayad');
+          console.log(profilepic);
         }
 
         $("#popModal").modal('show');
@@ -93,10 +98,16 @@
       </div>
     </nav>
   </header> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div class="wrapper">
   <div class="page-header margin-top20">
     <div class="row">
-<div class="col-md-5"><h1>ABCD <small>A Basic Custom Dashboard</small></h1></div>
-<div class="col-md-7 pt-4"><div class="g-signin2" data-onsuccess="onSignIn" data-width="175" data-height="35" data-theme="dark" data-longtitle="true"></div><button id="btnViewDashboard" type="button" class="btn btn-success" onclick="location.href = 'dashboard.html';">View Dashboard</button></div>
+<div class="col-md-9"><h1>ABCD <small>A Basic Custom Dashboard</small></h1></div>
+<div class="col-md-1 pt-4"><a href="#" class="widgetsReload"><img src="img\reload.png" title="Reload All" width="53" height="53"></a></div>
+<div class="col-md-1 pt-4"><a href="index.html"><img src="img\home.png" title="Go to Home" width="53" height="53"></a></div>
+<div class="col-md-1 pt-4"><img id="profile-img" src="img\profile.png" class="profile-image">
+</div>
     </div>
 
 
@@ -105,12 +116,10 @@
 
 
 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-<div class="wrapper">
-  <h1>
+
+  <!-- <h1>
     <a href="#" class="widgetsReload">Reload All</a>
-  </h1>
+  </h1> -->
 
   <div class="widgets widgets-js">
     <div class="widget widget-0" data-order="0">
@@ -122,9 +131,9 @@
       <div class="widget-content">
 
         <div class="center-wg">
-                    <img id="quote_img" alt="Smiley face" class="quote-img imgblur">
-                    <div class="quote-centered"><em><a id="quoteLink" target="_blank"><p class="quote"></p></a>
-                    &nbsp;-&nbsp;<p class="quoteAuthor"></p></em></div>
+                    <img id="quote_img" alt="Smiley face" class="quote-img img-fluid">
+                    <div class="quote-centered"><blockquote><a id="quoteLink" target="_blank"><p class="quote"></p></a>
+                    &nbsp;-&nbsp;<cite><span class="quoteAuthor"></span></cite></blockquote></div>
                     <!-- Click here -->
                 </div>
       </div>
@@ -136,10 +145,12 @@
         Joke of the day
       </div>
       <div class="widget-content">
-        <div>
-                    <img id="joke_img" alt="Smiley face" class="quote-img imgblur">
-                    <a id="jokeLink" target="_blank"><p class="joke"></p></a>
-                    <p class="jokeAuthor"></p>
+        <div class="row">
+          <div class="col-md-4"><img id="joke_img" alt="Smiley face" class="quote-img img-fluid"></div>
+          <div class="col-md-8"><blockquote><a id="jokeLink" target="_blank"><p class="joke"></p></a><cite><span class="jokeAuthor"></span></cite></blockquote>
+          </div>
+
+
                 </div>
       </div>
     </div>
@@ -153,7 +164,7 @@
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
-          <ol class="carousel-indicators">
+          <ol class="carousel-indicators news-indicators">
 
           </ol>
 
@@ -265,15 +276,15 @@
   </div>
   <!-- Popup Modal -->
 <div id="popModal" class="modal fade" role="dialog">
-<div class="modal-dialog">
+<div class="modal-dialog modal-dialog-centered">
   <!-- Modal content-->
   <div class="modal-content">
     <div class="modal-header">
 
-      <h4 class="modal-title"></h4>
+      <h4 class="modal-title">Welcome Guest</h4>
     </div>
-    <div class="modal-body">
-      <img id="modalimg" src="img\profile.png"/>
+    <div class="modal-body text-center">
+      <img id="modalimg" src="img\\profile.png">
     <!-- <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div> -->

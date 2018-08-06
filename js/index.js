@@ -2,6 +2,7 @@
 var quoteURL = "http://quotes.rest/qod.json?category=inspire";
 var jokeURL = "http://quotes.rest/qod.json?category=funny";
 var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=Dublin,ie&appid=500ef551d7a3ac2e64edfe842b5b5b47&units=metric";
+var newsURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=0ab77f5a4b3a4b8d84a514670a69d286";
 var newsdata = {
     "items": [
         {
@@ -179,18 +180,41 @@ $(document).ready(function() {
 						localStorage.setItem("quote", quote);
 						quote = "\"" + quote + "\"";
 						$('.quote').append(quote);
-						$('#quote_img').attr('src',data.contents.quotes[0].background);
+						// $('#quote_img').attr('src',data.contents.quotes[0].background);
+            $('#quote_img').attr('src','img\\quote-bck2.png');
 						$('.quoteAuthor').append(data.contents.quotes[0].author);
 						$('#quoteLink').attr('href',data.contents.quotes[0].permalink);
 
 
-						 localStorage.setItem("quote_img", data.contents.quotes[0].background);
+						 // localStorage.setItem("quote_img", data.contents.quotes[0].background);
 						 localStorage.setItem("quoteAuthor", data.contents.quotes[0].author);
 						 localStorage.setItem("quoteLink", data.contents.quotes[0].permalink);
 	        },
 	        error: function (jqXHR) {
 						console.log('Quote ERROR');
 	            console.log(jqXHR);
+              var quotestored = localStorage.getItem("quote");
+              var quoteauthorstored = localStorage.getItem("quoteAuthor");
+              var quotelinkstored = localStorage.getItem("quoteLink");
+              $('#quote_img').attr('src','img\\quote-bck2.png');
+              if (quotestored != null && quotestored != '') {
+                $('.quote').append(quotestored);
+              }
+              else {
+                $('.quote').append('If you dream it, you can do it.');
+              }
+              if (quotelinkstored != null && quotelinkstored != '') {
+                $('#quoteLink').append(quotelinkstored);
+              }
+              else {
+                $('#quoteLink').append('https://theysaidso.com/');
+              }
+              if (quoteauthorstored != null && quoteauthorstored != '') {
+                $('.quoteAuthor').append(quoteauthorstored);
+              }
+              else {
+                $('.quoteAuthor').append('Walt Disney');
+              }
 	        }
 	    });
 
@@ -204,8 +228,9 @@ $(document).ready(function() {
 								console.log(quote);
 								$('.joke').append(data.contents.quotes[0].quote);
 								$('.jokeAuthor').append(data.contents.quotes[0].author);
-						    $('#jokeLink').attr('href',data.contents.quotes[0].permalink);
-						    $('#joke_img').attr('src',data.contents.quotes[0].background);
+						    // $('#joke_img').attr('src',data.contents.quotes[0].background);
+                $('#jokeLink').attr('href',data.contents.quotes[0].permalink);
+						    $('#joke_img').attr('src','img\\laugh1.jpg');
 
 					       localStorage.setItem("joke", data.contents.quotes[0].quote);
 								 localStorage.setItem("jokeAuthor", data.contents.quotes[0].author);
@@ -215,6 +240,29 @@ $(document).ready(function() {
 			        error: function (jqXHR) {
 								console.log('Joke ERROR');
 			            console.log(jqXHR);
+
+                  var quotestored = localStorage.getItem("joke");
+                  var quoteauthorstored = localStorage.getItem("jokeAuthor");
+                  var quotelinkstored = localStorage.getItem("jokeLink");
+                  $('#joke_img').attr('src','img\\laugh1.jpg');
+                  if (quotestored != null && quotestored != '') {
+                    $('.joke').append(quotestored);
+                  }
+                  else {
+                    $('.joke').append('I love my six pack so much, I protect is with a layer of fat.');
+                  }
+                  if (quotelinkstored != null && quotelinkstored != '') {
+                    $('#jokeLink').append(quotelinkstored);
+                  }
+                  else {
+                    $('#jokeLink').append('https://theysaidso.com/');
+                  }
+                  if (quoteauthorstored != null && quoteauthorstored != '') {
+                    $('.jokeAuthor').append(quoteauthorstored);
+                  }
+                  else {
+                    $('.jokeAuthor').append('Anonymous');
+                  }
 			        }
 			    });
 					$.ajax({
@@ -266,7 +314,22 @@ $(document).ready(function() {
 													console.log(jqXHR);
 											}
 									});
-     setupNewsData();
+                  $.ajax({
+    											dataType: "json",
+    											url: newsURL,
+    											success: function (data) {
+console.log('news k andhar aaya re aaya');
+    												console.log(data);
+    												setupNewsData(data);
+
+
+    											},
+    											error: function (jqXHR) {
+    												console.log('Music ERROR');
+    													console.log(jqXHR);
+    											}
+    									});
+     // setupNewsData();
 		 //setupMusicData();
 		 setupbookData();
 
@@ -276,23 +339,27 @@ $(document).ready(function() {
 
  });
 
-function setupNewsData(){
+function setupNewsData(newsdata){
     var response = '',
     indicator = '';
-    var length = newsdata.items.length;
+    var length = newsdata.articles.length;
+    console.log('length');
+    console.log(length);
         if(length > 0){
             for (var i = 0; i < length; i++) {
                 if(i==0){
-                    response += '<div class="item active"><a href="'+newsdata.items[i].link+'" target="_blank"><img src="' + newsdata.items[i].src + '"><div class="carousel-caption"><h3>' +  newsdata.items[i].title + '</h3></div></a></div>';
+                    response += '<div class="item active"><a href="'+newsdata.articles[i].url+'" target="_blank"><img src="' + newsdata.articles[i].urlToImage + '"><div class="carousel-caption"><h3>' +  newsdata.articles[i].title + '</h3></div></a></div>';
                 }
                 else{
-                    response += '<div class="item"><a href="'+newsdata.items[i].link+'" target="_blank"><img src="' + newsdata.items[i].src + '"><div class="carousel-caption"><h3>' +  newsdata.items[i].title + '</h3></div></a></div>';
+                    response += '<div class="item"><a href="'+newsdata.articles[i].url+'" target="_blank"><img src="' + newsdata.articles[i].urlToImage + '"><div class="carousel-caption"><h3>' +  newsdata.articles[i].title + '</h3></div></a></div>';
                 }
 
                 indicator += '<li data-target="#myCarousel" data-slide-to="'+i+'"></li>';
             }
+            console.log('news response');
+            console.log(response);
             $('.news-section').html(response);
-            $('.carousel-indicators').html(indicator);
+            $('.news-indicators').html(indicator);
 
         }
     };

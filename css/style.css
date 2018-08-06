@@ -218,14 +218,14 @@ body {
 }
 
 .quote-img{
-  width: 100%;
+  max-width: 100%;
 }
 
 .quote-centered {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* top: 50%;
+    left: 50%; */
+    transform: translate(0%, -130%);
 }
 
 .center-wg {
@@ -301,5 +301,56 @@ textarea:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
 }
 
 .margin-top20{
-  margin-top: 20px !important;
+  margin-top: 10px !important;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* margin: 20px; */
+
+  object-fit: cover;
+  object-position: center right;
+}
+
+
+
+blockquote {
+font-family: Georgia, serif;
+font-size: 18px;
+font-style: italic;
+/* width: 500px; */
+margin: 0.25em 0;
+padding: 0.35em 40px;
+line-height: 1.45;
+position: relative;
+color: #383838;
+border-left: 5px;
+}
+
+/* blockquote:before {
+display: block;
+padding-left: 10px;
+content: "\201C";
+font-size: 80px;
+position: absolute;
+left: -20px;
+top: -20px;
+/* color: #7a7a7a; */
+} */
+
+blockquote cite {
+color: #999999;
+font-size: 14px;
+display: block;
+margin-top: 5px;
+}
+
+blockquote cite:before {
+content: "\2014 \2009";
+}
+
+#popModal .modal-dialog{
+  max-width: 300px!important;
 }
