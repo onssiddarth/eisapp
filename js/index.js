@@ -1,6 +1,6 @@
 
-var quoteURL = "http://quotes.rest/qod.json?category=inspire";
-var jokeURL = "http://quotes.rest/qod.json?category=funny";
+var quoteURL = "https://quotes.rest/qod.json?category=inspire";
+var jokeURL = "https://quotes.rest/qod.json?category=funny";
 var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=Dublin,ie&appid=500ef551d7a3ac2e64edfe842b5b5b47&units=metric";
 var newsURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=0ab77f5a4b3a4b8d84a514670a69d286";
 var newsdata = {
@@ -173,7 +173,7 @@ $(document).ready(function() {
 	        dataType: "json",
 	        url: quoteURL,
 	        success: function (data) {
-
+alert('quote success');
 						console.log(data);
 						var quote=data.contents.quotes[0].quote;
 						console.log(quote);
