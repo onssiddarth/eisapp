@@ -3,128 +3,10 @@ var quoteURL = "https://quotes.rest/qod.json?category=inspire";
 var jokeURL = "https://quotes.rest/qod.json?category=funny";
 var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=Dublin,ie&appid=500ef551d7a3ac2e64edfe842b5b5b47&units=metric";
 var newsURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=0ab77f5a4b3a4b8d84a514670a69d286";
-var newsdata = {
-    "items": [
-        {
-            "src": "https://fortunedotcom.files.wordpress.com/2017/03/uber.jpg",
-            "title": "Uber Drivers Are Employees, New York Unemployment Insurance Board Rules",
-            "link":"http://fortune.com/2018/07/21/uber-drivers-employees-new-york-unemployment"
-        },
-        {
-            "src": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/07/03/105308904-1530621057871rts1ub4e.1910x1000.jpg",
-            "title": "Elon Musk denies early orders being canceled for Model 3 – but new demand may be slipping anyway",
-            "link":"https://www.cnbc.com/2018/07/21/new-demand-may-be-slipping-for-tesla-model-3-early-orders.html"
-        },
-        {
-            "src": "https://www.gannett-cdn.com/-mm-/03e10f2abf2315b6ee2c0f9305e723ddb26d14d0/c=0-827-2646-2322/local/-/media/2018/07/20/Phoenix/Phoenix/636676480004632022-hilde.jpg?width=3200&height=1680&fit=crop",
-            "title": "CVS fires pharmacist who denied hormone prescription to transgender woman",
-            "link": "http://rssfeeds.usatoday.com/~/559970626/0/usatoday-newstopstories~CVS-fires-pharmacist-who-denied-hormone-prescription-to-transgender-woman/"
-        },
-        {
-            "src": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F488600%2Flogo-on-sign.jpg&h=630&w=1200&op=resize",
-            "title": "What Is Netflix, Inc.'s Competitive Advantage?",
-            "link":"https://www.fool.com/investing/2018/07/21/what-is-netflix-incs-competitive-advantage.aspx"
-        },
-        {
-            "src": "https://s2.reutersmedia.net/resources/r/?m=02&d=20180720&t=2&i=1285284753&w=1200&r=LYNXMPEE6J1CH",
-            "title": "Bayer to phase out Essure birth control device in US",
-            "link":"https://www.reuters.com/article/us-bayer-essure/bayer-to-phase-out-essure-birth-control-device-in-u-s-idUSKBN1KA2A1"
-        },
-        {
-            "src": "https://techcrunch.com/wp-content/uploads/2018/04/facebook-free-the-social-graph.png?w=753",
-            "title": "Facebook suspends analytics firm Crimson Hexagon over data use concerns",
-            "link":"https://techcrunch.com/2018/07/20/facebook-suspends-analytics-firm-crimson-hexagon-over-data-use-concerns/"
-        }
-    ]
-}
-
+var booksURL = "https://api.itbook.store/1.0/new";
 var musicURL = "https://api.napster.com/v2.1/tracks/top?apikey=ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
 
-var myBooks = {
-    "books": [
-    {
-    "title": "Design Patterns and Best Practices in Java",
-    "subtitle": "A comprehensive guide to building smart and reusable code in Java",
-    "isbn13": "9781786463593",
-    "price": "$35.99",
-    "image": "https://itbook.store/img/books/9781786463593.png",
-    "url": "https://itbook.store/books/9781786463593"
-    },
-    {
-    "title": "Mastering The Faster Web with PHP, MySQL, and JavaScript",
-    "subtitle": "Develop state-of-the-art web applications using the latest web technologies",
-    "isbn13": "9781788392211",
-    "price": "$31.99",
-    "image": "https://itbook.store/img/books/9781788392211.png",
-    "url": "https://itbook.store/books/9781788392211"
-    },
-    {
-    "title": "Puppet 5 Cookbook, 4th Edition",
-    "subtitle": "Jump start your Puppet 5.x deployment using engaging and practical recipes",
-    "isbn13": "9781788622448",
-    "price": "$35.99",
-    "image": "https://itbook.store/img/books/9781788622448.png",
-    "url": "https://itbook.store/books/9781788622448"
-    },
-    {
-    "title": "C++ Reactive Programming",
-    "subtitle": "Design concurrent and asynchronous applications using the RxCpp library and Modern C++17",
-    "isbn13": "9781788629775",
-    "price": "$35.99",
-    "image": "https://itbook.store/img/books/9781788629775.png",
-    "url": "https://itbook.store/books/9781788629775"
-    },
-    {
-    "title": "Angular 6 by Example, 3rd Edition",
-    "subtitle": "Get up and running with Angular by building modern real-world web apps",
-    "isbn13": "9781788835176",
-    "price": "$35.99",
-    "image": "https://itbook.store/img/books/9781788835176.png",
-    "url": "https://itbook.store/books/9781788835176"
-    },
-    {
-    "title": "Big Data Architect's Handbook",
-    "subtitle": "A guide to building proficiency in tools and systems used by leading big data experts",
-    "isbn13": "9781788835824",
-    "price": "$54.99",
-    "image": "https://itbook.store/img/books/9781788835824.png",
-    "url": "https://itbook.store/books/9781788835824"
-    },
-    {
-    "title": "Machine Learning with Core ML",
-    "subtitle": "An iOS developer's guide to implementing machine learning in mobile apps",
-    "isbn13": "9781788838290",
-    "price": "$39.99",
-    "image": "https://itbook.store/img/books/9781788838290.png",
-    "url": "https://itbook.store/books/9781788838290"
-    },
-    {
-    "title": "Hands-On High Performance with Spring 5",
-    "subtitle": "Techniques for scaling and optimizing Spring and Spring Boot applications",
-    "isbn13": "9781788838382",
-    "price": "$39.99",
-    "image": "https://itbook.store/img/books/9781788838382.png",
-    "url": "https://itbook.store/books/9781788838382"
-    },
-    {
-    "title": "Hands-On Cybersecurity with Blockchain",
-    "subtitle": "Implement DDoS protection, PKI-based identity, 2FA, and DNS security using Blockchain",
-    "isbn13": "9781788990189",
-    "price": "$35.99",
-    "image": "https://itbook.store/img/books/9781788990189.png",
-    "url": "https://itbook.store/books/9781788990189"
-    },
-    {
-    "title": "Learn Python Programming, 2nd Edition",
-    "subtitle": "A beginner's guide to learning the fundamentals of Python language to write efficient, high-quality code",
-    "isbn13": "9781788996662",
-    "price": "$39.99",
-    "image": "https://itbook.store/img/books/9781788996662.png",
-    "url": "https://itbook.store/books/9781788996662"
-    }
 
-    ]
-}
 var bookData = [];
 var slidesize = 2;
 var username = '';
@@ -173,7 +55,7 @@ $(document).ready(function() {
 	        dataType: "json",
 	        url: quoteURL,
 	        success: function (data) {
-alert('quote success');
+
 						console.log(data);
 						var quote=data.contents.quotes[0].quote;
 						console.log(quote);
@@ -318,7 +200,7 @@ alert('quote success');
     											dataType: "json",
     											url: newsURL,
     											success: function (data) {
-console.log('news k andhar aaya re aaya');
+
     												console.log(data);
     												setupNewsData(data);
 
@@ -329,9 +211,24 @@ console.log('news k andhar aaya re aaya');
     													console.log(jqXHR);
     											}
     									});
+                      $.ajax({
+        											dataType: "json",
+        											url: booksURL,
+        											success: function (data) {
+
+        												console.log(data);
+        												setupbookData(data);
+
+
+        											},
+        											error: function (jqXHR) {
+        												console.log('Books ERROR');
+        													console.log(jqXHR);
+        											}
+        									});
      // setupNewsData();
 		 //setupMusicData();
-		 setupbookData();
+		 // setupbookData();
 
 		 $("#create").click(function() {
 		   $(this).before("<textarea></textarea>");
@@ -342,16 +239,21 @@ console.log('news k andhar aaya re aaya');
 function setupNewsData(newsdata){
     var response = '',
     indicator = '';
+    var imageURL = '';
     var length = newsdata.articles.length;
     console.log('length');
     console.log(length);
         if(length > 0){
             for (var i = 0; i < length; i++) {
+              imageURL = newsdata.articles[i].urlToImage;
+              if (imageURL == null || imageURL == '') {
+                imageURL = 'img\\default_news.jpg';
+              }
                 if(i==0){
-                    response += '<div class="item active"><a href="'+newsdata.articles[i].url+'" target="_blank"><img src="' + newsdata.articles[i].urlToImage + '"><div class="carousel-caption"><h3>' +  newsdata.articles[i].title + '</h3></div></a></div>';
+                    response += '<div class="item active"><a href="'+newsdata.articles[i].url+'" target="_blank"><img src="' + imageURL + '"><div class="carousel-caption"><h3>' +  newsdata.articles[i].title + '</h3></div></a></div>';
                 }
                 else{
-                    response += '<div class="item"><a href="'+newsdata.articles[i].url+'" target="_blank"><img src="' + newsdata.articles[i].urlToImage + '"><div class="carousel-caption"><h3>' +  newsdata.articles[i].title + '</h3></div></a></div>';
+                    response += '<div class="item"><a href="'+newsdata.articles[i].url+'" target="_blank"><img src="' + imageURL + '"><div class="carousel-caption"><h3>' +  newsdata.articles[i].title + '</h3></div></a></div>';
                 }
 
                 indicator += '<li data-target="#myCarousel" data-slide-to="'+i+'"></li>';
@@ -386,11 +288,13 @@ function setupNewsData(newsdata){
 		        }
 		    };
 
-				function setupbookData(){
+				function setupbookData(bookData){
 						createBookArrays();
 						var htmlResponse='';
+            var imageURL = '';
 
 						for(var i=0;i<bookData.length;i++){
+
 							if(i==0){
 									htmlResponse+='<div class="item active"><ul class="thumbnails">'
 							}
@@ -398,6 +302,10 @@ function setupNewsData(newsdata){
 									htmlResponse+='<div class="item"><ul class="thumbnails">'
 							}
 							 for(var j=0;j<bookData[i].length;j++){
+                 imageURL = bookData[i][j].image;
+                 if (imageURL == null || imageURL == '') {
+                   imageURL = 'img\\noimage.jpg';
+                 }
 									htmlResponse+='<li class="col-md-6"><div class="thumbnail">';
 									htmlResponse+='<a href="'+bookData[i][j].url+'" target="_blank">'
 									htmlResponse+='<img src="'+bookData[i][j].image+'" alt=""></a></div>'
