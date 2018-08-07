@@ -29,6 +29,7 @@
 
       $(function() {
 $('#myCarousel').carousel({ interval: 2000 });
+$('#bookCarousel').carousel({ interval: 3000 });
         $('#btnViewDashboard').click(function() {
     window.location.href = 'index.html';
     return false;
@@ -221,10 +222,28 @@ $('#myCarousel').carousel({ interval: 2000 });
           <div class="carousel-inner books-section">
           </div>
 
-          <div class="control-box">
+          <!-- <div class="control-box">
             <a data-slide="prev" href="#bookCarousel" class="carousel-control book-carousel left">‹</a>
             <a data-slide="next" href="#bookCarousel" class="carousel-control book-carousel right">›</a>
-          </div>
+          </div> -->
+
+          <!-- <a class="left carousel-control" href="#bookCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#bookCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a> -->
+
+          <a class="carousel-control-prev" href="#bookCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#bookCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 
         </div>
 

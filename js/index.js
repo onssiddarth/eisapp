@@ -14,51 +14,12 @@ var profilepic = '';
 
 $(document).ready(function() {
 
-
-//$('#btnViewDashboard').hide();
-// $(function() {  $("#popModal").modal('show');
-// // Set a timeout to hide the element again
-// setTimeout(function(){
-//     $("#popModal").modal('hide');
-// }, 3000);
-// });
-
-  // function onSignIn(googleUser) {
-  //     var profile = googleUser.getBasicProfile();
-  //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  //     console.log('Name: ' + profile.getName());
-  //     username = profile.getName();
-  //     console.log('Image URL: ' + profile.getImageUrl());
-  //     profilepic = profile.getImageUrl();
-  //     console.log('Email: ' + profile.getEmail());
-  //     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-  //     console.log('Image URL: ' + profile.getImageUrl());
-  //     console.log('Email: ' + profile.getEmail());
-  //     //$('.modal-wrapper').toggleClass('open');
-  //     //$('.page-wrapper').toggleClass('blur');
-  //     //document.getElementById("namea").innerHTML = profile.getName();
-  //     //$("#imgid").attr("src", profile.getImageUrl());
-  //     //alert('hi');
-  //     //$('#btnViewDashboard').show();
-  // }
-  // function onFailure(error) {
-  //     console.log(error);
-  // }
-  // function signOut() {
-  //     var auth2 = gapi.auth2.getAuthInstance();
-  //     auth2.signOut().then(function () {
-  //         console.log('User signed out.');
-  //     });
-  // }
-
 	$.ajax({
 	        dataType: "json",
 	        url: quoteURL,
 	        success: function (data) {
 
-						console.log(data);
 						var quote=data.contents.quotes[0].quote;
-						console.log(quote);
 						localStorage.setItem("quote", quote);
 						quote = "\"" + quote + "\"";
 						$('.quote').append(quote);
@@ -105,9 +66,7 @@ $(document).ready(function() {
 			        url: jokeURL,
 			        success: function (data) {
 
-								console.log(data);
 								var quote=data.contents.quotes[0].quote;
-								console.log(quote);
 								$('.joke').append(data.contents.quotes[0].quote);
 								$('.jokeAuthor').append(data.contents.quotes[0].author);
 						    // $('#joke_img').attr('src',data.contents.quotes[0].background);
@@ -152,22 +111,13 @@ $(document).ready(function() {
 									url: weatherURL,
 									success: function (data) {
 
-										console.log(data);
 										var temperature=data.main.temp;
-										console.log(temperature);
 										temperature = Math.round(temperature) + "&deg;C";
 										var description=data.weather[0].description;
 										var icon=data.weather[0].icon;
 										icon = "http://openweathermap.org/img/w/" + icon + ".png"
 										var city=data.name;
 										var country=data.sys.country;
-										console.log(temperature);
-										console.log(description);
-										console.log(icon);
-										console.log(city);
-										console.log(country);
-                    console.log(username);
-                    console.log(profilepic);
 										var modifiedcity = city + ", " + country;
 										$('#temperature').html(temperature);
 										$('#description').html(description);
@@ -186,7 +136,6 @@ $(document).ready(function() {
 											url: musicURL,
 											success: function (data) {
 
-												console.log(data);
 												setupMusicData(data);
 
 
@@ -201,13 +150,12 @@ $(document).ready(function() {
     											url: newsURL,
     											success: function (data) {
 
-    												console.log(data);
     												setupNewsData(data);
 
 
     											},
     											error: function (jqXHR) {
-    												console.log('Music ERROR');
+    												console.log('News ERROR');
     													console.log(jqXHR);
     											}
     									});
@@ -241,13 +189,15 @@ function setupNewsData(newsdata){
     indicator = '';
     var imageURL = '';
     var length = newsdata.articles.length;
-    console.log('length');
-    console.log(length);
+
         if(length > 0){
             for (var i = 0; i < length; i++) {
               imageURL = newsdata.articles[i].urlToImage;
+              console.log('news img url');
+              console.log(imageURL);
               if (imageURL == null || imageURL == '') {
                 imageURL = 'img\\default_news.jpg';
+                console.log('inside null chk');
               }
                 if(i==0){
                     response += '<div class="item active"><a href="'+newsdata.articles[i].url+'" target="_blank"><img src="' + imageURL + '"><div class="carousel-caption"><h3>' +  newsdata.articles[i].title + '</h3></div></a></div>';
@@ -258,8 +208,7 @@ function setupNewsData(newsdata){
 
                 indicator += '<li data-target="#myCarousel" data-slide-to="'+i+'"></li>';
             }
-            console.log('news response');
-            console.log(response);
+
             $('.news-section').html(response);
             $('.news-indicators').html(indicator);
 
@@ -288,13 +237,12 @@ function setupNewsData(newsdata){
 		        }
 		    };
 
-				function setupbookData(bookData){
-						createBookArrays();
+				function setupbookData(mybookData){
+						createBookArrays(mybookData);
 						var htmlResponse='';
             var imageURL = '';
 
 						for(var i=0;i<bookData.length;i++){
-
 							if(i==0){
 									htmlResponse+='<div class="item active"><ul class="thumbnails">'
 							}
@@ -308,11 +256,11 @@ function setupNewsData(newsdata){
                  }
 									htmlResponse+='<li class="col-md-6"><div class="thumbnail">';
 									htmlResponse+='<a href="'+bookData[i][j].url+'" target="_blank">'
-									htmlResponse+='<img src="'+bookData[i][j].image+'" alt=""></a></div>'
+									htmlResponse+='<img src="'+imageURL+'" alt=""></a></div>'
 									htmlResponse+= '<div class="caption-box">'
 
-									if (bookData[i][j].title.length > 20) {
-										htmlResponse+= '<h5>'+bookData[i][j].title.substring(0,20)+'...'+'</h5>'
+									if (bookData[i][j].title.length > 35) {
+										htmlResponse+= '<h5>'+bookData[i][j].title.substring(0,35)+'...'+'</h5>'
 									}
 									else {
 										htmlResponse+= '<h5>'+bookData[i][j].title +'</h5>'
@@ -320,17 +268,19 @@ function setupNewsData(newsdata){
 
 
 									// htmlResponse+= '<h5>'+bookData[i][j].title.substring(0,20)+'...'+'</h5>'
-									htmlResponse+= '<p class="book-subtitle" title="'+bookData[i][j].subtitle+'">'+bookData[i][j].subtitle+'</p>'
-									htmlResponse+= '<a class="btn btn-success btn-mini" href="'+bookData[i][j].url+'">View Details</a></div>'
+									// htmlResponse+= '<p class="book-subtitle" title="'+bookData[i][j].subtitle+'">'+bookData[i][j].subtitle+'</p>'
+                  htmlResponse+= '<div style="text-align: center;"><h2>'+bookData[i][j].price+'</h2></div>'
+									htmlResponse+= '<div style="text-align: center;"><a class="btn btn-danger" role="button" href="'+bookData[i][j].url+'">View Details</a></div></div>'
 									htmlResponse+= '</li>'
 							 }
 							 htmlResponse+= '</ul></div>'
 						}
+
 						$(".books-section").html(htmlResponse);
 				}
 
 				//This function is used to split array to size of 4 to display it in carousel
-				function createBookArrays(){
+				function createBookArrays(myBooks){
 					var bookObjectArray = myBooks.books;
 					for (var i=0; i<bookObjectArray.length; i+=slidesize) {
 							 bookData.push(bookObjectArray.slice(i,i+slidesize));
