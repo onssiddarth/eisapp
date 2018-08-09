@@ -3,7 +3,7 @@ var quoteURL = "https://quotes.rest/qod.json?category=inspire";
 var jokeURL = "https://quotes.rest/qod.json?category=funny";
 var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=Dublin,ie&appid=500ef551d7a3ac2e64edfe842b5b5b47&units=metric";
 var newsURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=0ab77f5a4b3a4b8d84a514670a69d286";
-var booksURL = "https://api.itbook.store/1.0/new?format=jsonp";
+var booksURL = "https://api.itbook.store/1.0/new";
 var musicURL = "https://api.napster.com/v2.1/tracks/top?apikey=ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
 
 
@@ -210,7 +210,7 @@ $(document).ready(function() {
     											}
     									});
                       $.ajax({
-        											dataType: "jsonp",
+        											dataType: "json",
         											url: booksURL,
         											success: function (data) {
 
