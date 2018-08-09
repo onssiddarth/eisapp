@@ -262,35 +262,72 @@
 // $(function() {
 //     // $('#carouselExampleControls').carousel({ interval: 2000 });
 //     });
-    function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        username = profile.getName();
-        console.log('Image URL: ' + profile.getImageUrl());
-        profilepic = profile.getImageUrl();
-        console.log('Email: ' + profile.getEmail());
-        console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
-        localStorage.setItem("username", username);
-        localStorage.setItem("profilepic", profilepic);
-        //$('.modal-wrapper').toggleClass('open');
-        //$('.page-wrapper').toggleClass('blur');
-        //document.getElementById("namea").innerHTML = profile.getName();
-        //$("#imgid").attr("src", profile.getImageUrl());
-        $('#btnViewDashboard').show();
-        window.location.href = 'dashboard.html';
-    }
-    function onFailure(error) {
-        console.log(error);
-    }
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
+    // function onSignIn(googleUser) {
+    //   var storedusername = localStorage.getItem("username");
+    //     var profile = googleUser.getBasicProfile();
+    //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //     console.log('Name: ' + profile.getName());
+    //     username = profile.getName();
+    //     console.log('Image URL: ' + profile.getImageUrl());
+    //     profilepic = profile.getImageUrl();
+    //     console.log('Email: ' + profile.getEmail());
+    //     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    //     console.log('Image URL: ' + profile.getImageUrl());
+    //     console.log('Email: ' + profile.getEmail());
+    //     localStorage.setItem("username", username);
+    //     localStorage.setItem("profilepic", profilepic);
+    //     //$('.modal-wrapper').toggleClass('open');
+    //     //$('.page-wrapper').toggleClass('blur');
+    //     //document.getElementById("namea").innerHTML = profile.getName();
+    //     //$("#imgid").attr("src", profile.getImageUrl());
+    //     $('#btnViewDashboard').show();
+    //     window.location.href = 'dashboard.html';
+    // }
+    // function onFailure(error) {
+    //     console.log(error);
+    // }
+    // function signOut() {
+    //     var auth2 = gapi.auth2.getAuthInstance();
+    //     auth2.signOut().then(function () {
+    //         console.log('User signed out.');
+    //     });
+    // }
+    /**
+ * The Sign-In client object.
+ */
+var auth2;
+
+/**
+ * Initializes the Sign-In client.
+ */
+var initClient = function() {
+    gapi.load('auth2', function(){
+        /**
+         * Retrieve the singleton for the GoogleAuth library and set up the
+         * client.
+         */
+        auth2 = gapi.auth2.init({
+            client_id: '106664410926-fdp4kn4356plv295db92u5q0ljg0koa1.apps.googleusercontent.com'
         });
-    }
+
+        // Attach the click handler to the sign-in button
+        auth2.attachClickHandler('gsign', {}, onSuccess, onFailure);
+    });
+};
+
+/**
+ * Handle successful sign-ins.
+ */
+var onSuccess = function(user) {
+    console.log('Signed in as ' + user.getBasicProfile().getName());
+ };
+
+/**
+ * Handle sign-in failures.
+ */
+var onFailure = function(error) {
+    console.log(error);
+};
     </script>
 <style>
 .main-text {
