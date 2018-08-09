@@ -259,9 +259,10 @@
 
     <!-- <a href="#" onclick="signOut();">Sign out</a> -->
     <script>
-// $(function() {
-//     // $('#carouselExampleControls').carousel({ interval: 2000 });
-//     });
+$(function() {
+    // $('#carouselExampleControls').carousel({ interval: 2000 });
+    $('#btnViewDashboard').hide();
+    });
     function onSignIn(googleUser) {
       var storedusername = localStorage.getItem("username");
         var profile = googleUser.getBasicProfile();
