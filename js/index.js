@@ -12,51 +12,51 @@ var slidesize = 2;
 var username = '';
 var profilepic = '';
 
-function animationHover(element, animation){
-		element = $(element);
-		element.hover(
-				function() {
-						element.addClass('animated ' + animation);
-				},
-				function(){
-						//wait for animation to finish before removing classes
-						window.setTimeout( function(){
-								element.removeClass('animated ' + animation);
-						}, 2000);
-				});
-}
-function animationClick(element, animation){
-		element = $(element);
-		element.click(
-				function() {
-						element.addClass('animated ' + animation);
-						//wait for animation to finish before removing classes
-						window.setTimeout( function(){
-								element.removeClass('animated ' + animation);
-						}, 2000);
-
-				});
-}
+// function animationHover(element, animation){
+// 		element = $(element);
+// 		element.hover(
+// 				function() {
+// 						element.addClass('animated ' + animation);
+// 				},
+// 				function(){
+// 						//wait for animation to finish before removing classes
+// 						window.setTimeout( function(){
+// 								element.removeClass('animated ' + animation);
+// 						}, 2000);
+// 				});
+// }
+// function animationClick(element, animation){
+// 		element = $(element);
+// 		element.click(
+// 				function() {
+// 						element.addClass('animated ' + animation);
+// 						//wait for animation to finish before removing classes
+// 						window.setTimeout( function(){
+// 								element.removeClass('animated ' + animation);
+// 						}, 2000);
+//
+// 				});
+// }
 
 $(document).ready(function() {
-	$('#logo').each(function() {
-			animationHover(this, 'bounce');
-		});
-		// $('#gsign').each(function() {
-		// 		animationHover(this, 'pulse');
-		// 	});
-			$('#btnViewDashboard').each(function() {
-					animationHover(this, 'pulse');
-				});
-				$('#imgreload').each(function() {
-						animationHover(this, 'pulse');
-					});
-					$('#gotohome').each(function() {
-							animationHover(this, 'pulse');
-						});
-						$('#profile-img').each(function() {
-								animationHover(this, 'rotateIn');
-							});
+	// $('#logo').each(function() {
+	// 		animationHover(this, 'bounce');
+	// 	});
+	// 	// $('#gsign').each(function() {
+	// 	// 		animationHover(this, 'pulse');
+	// 	// 	});
+	// 		$('#btnViewDashboard').each(function() {
+	// 				animationHover(this, 'pulse');
+	// 			});
+	// 			$('#imgreload').each(function() {
+	// 					animationHover(this, 'pulse');
+	// 				});
+	// 				$('#gotohome').each(function() {
+	// 						animationHover(this, 'pulse');
+	// 					});
+	// 					$('#profile-img').each(function() {
+	// 							animationHover(this, 'rotateIn');
+	// 						});
 
 	$.ajax({
 	        dataType: "json",
