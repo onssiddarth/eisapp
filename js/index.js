@@ -210,7 +210,7 @@ $(document).ready(function() {
     											}
     									});
                       $.ajax({
-        											dataType: "json",
+        											dataType: "jsonp",
         											url: booksURL,
         											success: function (data) {
 
@@ -243,11 +243,11 @@ function setupNewsData(newsdata){
         if(length > 0){
             for (var i = 0; i < length; i++) {
               imageURL = newsdata.articles[i].urlToImage;
-              console.log('news img url');
-              console.log(imageURL);
+              // console.log('news img url');
+              // console.log(imageURL);
               if (imageURL == null || imageURL == '') {
                 imageURL = 'img\\default_news.jpg';
-                console.log('inside null chk');
+                // console.log('inside null chk');
               }
                 if(i==0){
                     response += '<div class="item active"><a href="'+newsdata.articles[i].url+'" target="_blank"><img src="' + imageURL + '"><div class="carousel-caption"><h3>' +  newsdata.articles[i].title + '</h3></div></a></div>';
