@@ -91,10 +91,10 @@ $(document).ready(function() {
                 $('.quote').append('If you dream it, you can do it.');
               }
               if (quotelinkstored != null && quotelinkstored != '') {
-                $('#quoteLink').append(quotelinkstored);
+                $('#quoteLink').attr('href',quotelinkstored);
               }
               else {
-                $('#quoteLink').append('https://theysaidso.com/');
+                $('#quoteLink').attr('href','https://theysaidso.com/');
               }
               if (quoteauthorstored != null && quoteauthorstored != '') {
                 $('.quoteAuthor').append(quoteauthorstored);
@@ -137,10 +137,10 @@ $(document).ready(function() {
                     $('.joke').append('I love my six pack so much, I protect is with a layer of fat.');
                   }
                   if (quotelinkstored != null && quotelinkstored != '') {
-                    $('#jokeLink').append(quotelinkstored);
+                    $('#jokeLink').attr('href',quotelinkstored);
                   }
                   else {
-                    $('#jokeLink').append('https://theysaidso.com/');
+                    $('#jokeLink').attr('href','https://theysaidso.com/');
                   }
                   if (quoteauthorstored != null && quoteauthorstored != '') {
                     $('.jokeAuthor').append(quoteauthorstored);
