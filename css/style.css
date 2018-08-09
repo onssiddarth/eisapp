@@ -5,6 +5,8 @@ body {
   font-family: Arial;
 }
 
+.page-header { border-color: #0070F1;  }
+
 .wrapper {
   margin: 30px;
 }
@@ -26,6 +28,9 @@ body {
   box-sizing: border-box;
   background: #FFF;
   overflow: auto;
+  box-shadow: 10px 10px 5px grey;
+  border: 1px solid;
+  border-color: #0070F1;
 }
 
 .widget-header {
@@ -223,9 +228,9 @@ body {
 
 .quote-centered {
     position: absolute;
-    /* top: 50%;
-    left: 50%; */
-    transform: translate(0%, -130%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .center-wg {
@@ -305,8 +310,8 @@ textarea:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
 }
 
 .profile-image {
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   /* margin: 20px; */
 
@@ -353,4 +358,70 @@ content: "\2014 \2009";
 
 #popModal .modal-dialog{
   max-width: 300px!important;
+}
+
+.weather-div {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: none;
+  /* width: 500px;
+  height: 335px; */
+  color: black;
+  padding: 10px;
+  width: 100px;
+  height: 100%;
+  background: url(../img/3dyellow.png) right no-repeat;
+  /* background-size: 100% auto; */
+background-size: cover;
+}
+
+.weather-description{
+  font-weight: bold;
+}
+
+.weather-temp{
+  font-size: 48px;
+  font-weight: bold;
+}
+
+
+.shadow {
+  position: relative;
+  /* width: 300px;
+  height: 200px; */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  float: left;
+  /* margin-left: 150px; */
+}
+.shadow:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    left: 1px;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

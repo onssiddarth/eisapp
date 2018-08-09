@@ -12,7 +12,51 @@ var slidesize = 2;
 var username = '';
 var profilepic = '';
 
+function animationHover(element, animation){
+    element = $(element);
+    element.hover(
+        function() {
+            element.addClass('animated ' + animation);
+        },
+        function(){
+            //wait for animation to finish before removing classes
+            window.setTimeout( function(){
+                element.removeClass('animated ' + animation);
+            }, 2000);
+        });
+}
+function animationClick(element, animation){
+    element = $(element);
+    element.click(
+        function() {
+            element.addClass('animated ' + animation);
+            //wait for animation to finish before removing classes
+            window.setTimeout( function(){
+                element.removeClass('animated ' + animation);
+            }, 2000);
+
+        });
+}
+
 $(document).ready(function() {
+	$('#logo').each(function() {
+			animationHover(this, 'bounce');
+		});
+		$('.g-signin2').each(function() {
+				animationHover(this, 'pulse');
+			});
+			$('#btnViewDashboard').each(function() {
+					animationHover(this, 'pulse');
+				});
+				$('#imgreload').each(function() {
+						animationHover(this, 'pulse');
+					});
+					$('#gotohome').each(function() {
+							animationHover(this, 'pulse');
+						});
+						$('#profile-img').each(function() {
+								animationHover(this, 'rotateIn');
+							});
 
 	$.ajax({
 	        dataType: "json",
@@ -116,11 +160,17 @@ $(document).ready(function() {
 										var description=data.weather[0].description;
 										var icon=data.weather[0].icon;
 										icon = "http://openweathermap.org/img/w/" + icon + ".png"
+										var mintemp=data.main.temp_min;
+										var maxtemp=data.main.temp_max;
+										mintemp="MIN: " + mintemp+ "&deg;C";
+										maxtemp="MAX: " + maxtemp+ "&deg;C";
 										var city=data.name;
 										var country=data.sys.country;
 										var modifiedcity = city + ", " + country;
 										$('#temperature').html(temperature);
 										$('#description').html(description);
+										$('#mintemp').html(mintemp);
+										$('#maxtemp').html(maxtemp);
 										$('#weather_img').attr('src',icon);
 										$('#citycountry').html(modifiedcity);
 

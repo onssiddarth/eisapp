@@ -43,13 +43,13 @@ $('#bookCarousel').carousel({ interval: 3000 });
         var profilepic = localStorage.getItem("profilepic");
         console.log(profilepic);
         if (username != '' && username != null) {
-          var name = 'Welcome ' + username;
+          var name = 'Welcome ' + username + '!';
           console.log(name);
           $('.modal-title').html(name);
           console.log('inside username');
         }
         else {
-          $('#modal-title').html('Welcome Guest');
+          $('#modal-title').html('Welcome Guest!');
         }
         if (profilepic != '' && profilepic != null) {
           $('#modalimg').attr('src',profilepic);
@@ -104,14 +104,19 @@ $('#bookCarousel').carousel({ interval: 3000 });
 <div class="wrapper">
   <div class="page-header margin-top20">
     <div class="row">
-<div class="col-md-9"><h1>ABCD <small>A Basic Custom Dashboard</small></h1></div>
-<div class="col-md-1 pt-4"><a href="#" class="widgetsReload"><img src="img\reload.png" title="Reload All" width="53" height="53"></a></div>
-<div class="col-md-1 pt-4"><a href="index.html"><img src="img\home.png" title="Go to Home" width="53" height="53"></a></div>
-<div class="col-md-1 pt-4"><img id="profile-img" src="img\profile.png" class="profile-image">
+<div class="col-md-9"><img id="logo" alt="My Logo" src="img\logo3.png" width="80%" class="quote-img img-fluid"></div>
+<div class="col-md-1"><a href="#" class="widgetsReload"><img id="imgreload" src="img\reload.png" title="Reload All" width="68" height="68"></a></div>
+<div class="col-md-1"><a href="index.html"><img id="gotohome" src="img\home.png" title="Go to Home" width="68" height="68"></a></div>
+<div class="col-md-1">
+<div class="dropdown">
+  <img id="profile-img" src="img\profile.png" class="profile-image">
+  <div class="dropdown-content">
+    <a href="index.html"><img src="img\logout.png" alt="Log out" width="100"></a>
+  </div>
 </div>
     </div>
 
-
+</div>
 
 </div>
 
@@ -122,7 +127,7 @@ $('#bookCarousel').carousel({ interval: 3000 });
     <a href="#" class="widgetsReload">Reload All</a>
   </h1> -->
 
-  <div class="widgets widgets-js">
+  <div class="widgets widgets-js shadow">
     <div class="widget widget-0" data-order="0">
       <div class="widget-header">
         <a href="#" class="widget-close">close</a>
@@ -257,17 +262,30 @@ $('#bookCarousel').carousel({ interval: 3000 });
       </div>
       <div class="widget-content">
 
-        <div class="row">
+<div class="row">
+  <div class="col-md-12 weather-div">
+        <!-- <div class="row">
           <div id="citycountry" class="col-md-12"></div>
-        </div>
+        </div> -->
         <div class="row">
-          <h1 id="temperature" class="col-md-6"></h1>
-          <div class="col-md-6">
-            <div class="row"><div class="col-md-12"><img id="weather_img" alt="No image"></div></div>
-            <div class="row"><div id="description" class="col-md-12"></div></div>
+          <div class="col-md-4">
+              <h1 id="temperature" class="col-md-6 weather-temp pl-5"></h1>
           </div>
-        </div>
+          <div class="col-md-5">
+            <div class="row"><h2 id="citycountry" class="col-md-12" ></h2></div>
+            <div class="row">
+              <div class="col-md-6"><div id="mintemp"></div></div>
+              <div class="col-md-6"><div id="maxtemp"></div></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="row"><div class="col-md-12"><img id="weather_img" alt="No image"></div></div>
+            <div class="row"><div class="col-md-12"><div id="description" class="weather-description"></div></div></div>
+          </div>
 
+        </div>
+</div>
+</div>
       </div>
     </div>
 
@@ -300,10 +318,10 @@ $('#bookCarousel').carousel({ interval: 3000 });
   <div class="modal-content">
     <div class="modal-header">
 
-      <h4 class="modal-title">Welcome Guest</h4>
+      <h1 class="modal-title">Welcome Guest!</h1>
     </div>
     <div class="modal-body text-center">
-      <img id="modalimg" src="img\\profile.png">
+      <img id="modalimg" src="img\\profile.png" class="rounded border border-primary">
     <!-- <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div> -->
